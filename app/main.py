@@ -1,10 +1,12 @@
 from fastapi import FastAPI, HTTPException,Form,Depends, Security
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from .classes.db_ops import db_operations
+from classes.db_ops import db_operations
 from fastapi.security import APIKeyHeader
 from fastapi.security.api_key import APIKey
 import os
+from dotenv import load_dotenv
+load_dotenv()
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -15,9 +17,7 @@ app.add_middleware(
 )
 
 Dwellfi_key = os.getenv("Dwellfi_key")
-Dwellfi_key="temp_proj"
 API_KEY_NAME = os.getenv("API_KEY")
-API_KEY_NAME="Authetication"
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=True)
 def get_api_key(api_key_header: str = Security(api_key_header)):
     if api_key_header==Dwellfi_key:

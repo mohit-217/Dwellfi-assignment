@@ -80,7 +80,7 @@ Build the project from source:
 ```sh
 ❯ pip install -r requirements.txt
 ```
-3.2 Or build the docker image :
+3.2 Or build the docker image (Need to update docker-compose.yaml) :
 ```sh
 ❯ docker image build -t dwellfi-app .
 ```
@@ -98,10 +98,14 @@ Set the following environment variables before running the application:
 
 To run the project using uvicorn change .classes to classes and run below command:
 
+Navigate to the project directory:
+```sh
+❯ cd Dwellfi-assignment/app
+```
 ```sh
 ❯ uvicorn main:app
 ```
-To run the project using Docker Run the below command
+To run the project using Docker Run the below command (need to update docker-compose.yaml)
 ```sh
 ❯ docker container run --publish 8080:8080 --name dwellfi-app-container dwellfi-app
 ```
