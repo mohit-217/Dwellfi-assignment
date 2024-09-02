@@ -97,6 +97,10 @@ Set the following environment variables before running the application:
 ###  Usage
 
 To run the project using uvicorn change .classes to classes and run below command:
+Create a .env file on the level of app directory:
+```sh
+❯  .env copy all environment variables
+```
 
 Navigate to the project directory:
 ```sh
